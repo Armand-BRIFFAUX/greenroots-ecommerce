@@ -49,7 +49,7 @@ Ce projet a été développé dans le cadre d'un projet d'apothéose en équipe 
 ## 📁 Structure du projet
 
 ```
-dwwm-greenroots/
+greenroots-ecommerce/
 ├── app/
 │   ├── controllers/      # Logique métier
 │   ├── middlewares/      # Middlewares (auth, validation, etc.)
