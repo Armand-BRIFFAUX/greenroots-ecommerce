@@ -92,7 +92,7 @@ Le projet utilise 7 tables principales :
 
 ```bash
 
-cd dwwm-greenroots
+cd greenroots-ecommerce
 ```
 
 2. Installer les dépendances
