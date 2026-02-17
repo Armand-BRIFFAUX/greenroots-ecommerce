@@ -91,7 +91,7 @@ Le projet utilise 7 tables principales :
 1. Cloner le dépôt
 
 ```bash
-
+git clone https://github.com/Armand-BRIFFAUX/greenroots-ecommerce.git
 cd greenroots-ecommerce
 ```
 
