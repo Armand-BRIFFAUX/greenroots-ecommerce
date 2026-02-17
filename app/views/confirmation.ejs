@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+  <div class="confirmation_container">
+    <div class="confirmation_success">
+      <div class="success_icon">✅</div>
+      <h1>Commande confirmée !</h1>
+      <p class="order_number">Numéro de commande : <strong>
+          <%= orderNumber %>
+        </strong></p>
+    </div>
+
+    <div class="confirmation_message">
+      <h2>Merci pour votre contribution à la reforestation !</h2>
+      <p>Vos arbres vont être plantés dans les prochains jours.</p>
+      <p>Vous pourrez suivre l'évolution de vos arbres dans votre profil,
+        rubrique "Liste des arbres"</p>
+    </div>
+
+    <div class="confirmation_details">
+      <h3>Résumé de votre commande</h3>
+      <div class="order_items">
+        <% order.Trees.forEach(tree=> { %>
+          <div class="order_item">
+            <img src="<%= tree.image %>" alt="<%= tree.name %>">
+            <div class="item_info">
+              <h4>
+                <%= tree.name %>
+              </h4>
+              <p>Quantité : <%= tree.OrderHasTree.quantity %>
+              </p>
+              <p>Prix unitaire : <%= tree.price %> €</p>
+              <p class="item_subtotal">
+                Sous-total : <%= (parseFloat(tree.price) * tree.OrderHasTree.quantity).toFixed(2) %> €
+              </p>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+
+      <div class="order_total">
+        <h3>Total : <%= order.total_price %> €</h3>
+        <p class="order_date">Commandé le <%= new Date(order.createdAt).toLocaleDateString('fr-FR') %>
+        </p>
+      </div>
+    </div>
+
+    <div class="confirmation_actions">
+      <a href="/trees" class="back_trees">Continuer mes achats</a>
+      <a href="/dashboard" class="back_dashboard">Voir mon tableau de bord</a>
+    </div>
+  </div>
+
+
+  <%- include('partials/footer') %>

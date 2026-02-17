@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<section id="details">
+    <h1 class="details_h1">
+        Détail de l’utilisateur <%= item.first_name %> <%= item.last_name %>
+    </h1>
+
+    <div class="retour">
+        <a class="retour_button" href="/users">&lt;&lt; Retour aux utilisateurs</a>
+    </div>
+
+    <article class="user_info">
+
+        <div class="details_info">
+            <h2>
+                <span>Nom</span> : <%= item.first_name %> <%= item.last_name %>
+            </h2>
+            <p><span>Email</span> : <%= item.email %></p>
+            <p><span>Rôle</span> : <%= item.role %></p>
+
+            <% if (userRole === 'admin') { %>
+                <div class="admin_actions">
+                    <form action="/users/<%= item.id %>/edit" method="GET">
+                        <button type="submit" class="edit_button">Modifier</button>
+                    </form>
+                    <form action="/users/<%= item.id %>/delete" method="POST">
+                        <button type="submit" class="delete_button">Supprimer</button>
+                    </form>
+                </div>
+            <% } %>
+        </div>
+    </article>
+</section>
+
+<%- include('../partials/footer') %>

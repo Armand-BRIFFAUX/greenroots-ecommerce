@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+  <section class="form_container">
+    <h1>
+      <%= title %>
+    </h1>
+
+    <% if (errorMessage) { %>
+      <p class="error">
+        <%= errorMessage %>
+      </p>
+      <% } %>
+
+        <form method="POST" action="/trees/create" class="tree_form">
+          <div class="form_field">
+            <label>Nom :</label>
+            <input type="text" name="name" required value="<%= oldInput.name || '' %>">
+          </div>
+          <div class="form_field">
+            <label>Description :</label>
+            <textarea name="description"><%= oldInput.description || '' %></textarea>
+          </div>
+          <div class="form_field">
+            <label>Image :</label>
+            <input type="text" name="image" value="<%= oldInput.image || '' %>"
+              placeholder="https://... ou /images/mon-arbre.jpg">
+          </div>
+          <div class="form_field">
+            <label>Prix (€) :</label>
+            <input type="number" name="price" step="0.01" required value="<%= oldInput.price || '' %>">
+          </div>
+          <div class="form_field">
+            <label>Stock :</label>
+            <input type="number" name="stock" min="0" required value="<%= oldInput.stock || '' %>">
+          </div>
+          <div class="form_field">
+            <label>Origine :</label>
+            <input type="text" name="origin" required value="<%= oldInput.origin || '' %>">
+          </div>
+          <div class="form_submit">
+            <button type="submit">Créer</button>
+          </div>
+        </form>
+
+  </section>
+  <%- include('../partials/footer') %>

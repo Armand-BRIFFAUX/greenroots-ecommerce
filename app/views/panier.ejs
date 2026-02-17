@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+  <h1 class="cart_title">Mon Panier</h1>
+  <a class="cart_back" href="/trees">Voir les arbres</a>
+  <% if (panierItems.length===0) { %>
+    <p class="cart_empty">Votre panier est vide</p>
+    <% } else { %>
+
+      <% panierItems.forEach(item=> { %>
+        <div class="cart_item">
+          <img src="<%= item.tree.image %>" alt="<%= item.tree.name %>">
+          <div class="cart_item_info">
+            <div class="cart_item_details">
+              <h3>
+                <%= item.tree.name %>
+              </h3>
+              <p>Prix unitaire : <%= item.tree.price %> €</p>
+              <div class="cart_item_quantity">
+                <p>Quantité : </p>
+                <div class="quantity_controls">
+                  <form action="/panier/update" method="POST" class="quantity_form">
+                    <input type="hidden" name="tree_id" value="<%= item.tree.id %>">
+                    <input type="hidden" name="quantity" value="<%= item.quantity - 1 %>">
+                    <button type="submit" class="quantity_btn" <%=item.quantity <=1 ? 'disabled' : '' %>>-</button>
+                  </form>
+                  <span class="quantity_display">
+                    <%= item.quantity %>
+                  </span>
+                  <form action="/panier/update" method="POST" class="quantity_form">
+                    <input type="hidden" name="tree_id" value="<%= item.tree.id %>">
+                    <input type="hidden" name="quantity" value="<%= item.quantity + 1 %>">
+                    <button type="submit" class="quantity_btn" <%=item.quantity>= item.tree.stock ? 'disabled' : ''
+                      %>
+                      >+</button>
+                  </form>
+                </div>
+              </div>
+              <p class="cart_item_subtotal">Sous-total : <%= item.subtotal %> €</p>
+            </div>
+            <form class="cart_item_remove" action="/panier/remove" method="POST">
+              <input type="hidden" name="tree_id" value="<%= item.tree.id %>">
+              <button type="submit">Supprimer</button>
+            </form>
+          </div>
+        </div>
+        <% }) %>
+          <div class="cart_total_container">
+            <h2 class="cart_total">Total : <%= total %> €</h2>
+            <form action="/panier/validate" method="POST" class="cart_validate_form">
+              <button type="submit" class="cart_validate_btn">Valider ma commande</button>
+            </form>
+          </div>
+          <% } %>
+
+            <%- include('partials/footer') %>

@@ -1,0 +1,143 @@
+/* Container principal RGPD */
+.rgpd {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+/* Titre principal */
+.rgpd h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+    color: var(--color-ultradarkgreen);
+}
+
+/* Sections principales (mentions-legales et politique-confidentialite) */
+.rgpd-section {
+    width: 80%;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-lightgreen);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres h2 des sections */
+.rgpd h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-darkgreen);
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--color-lightgreen);
+    padding-left: 1rem;
+}
+
+/* Sous-titres h3 */
+.rgpd h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-ultradarkgreen);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Paragraphes */
+.rgpd p {
+    line-height: 2rem;
+    text-align: justify;
+    margin: 1rem 0;
+    color: #333;
+}
+
+/* Listes */
+.rgpd ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.rgpd ul li {
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.8rem;
+    color: #333;
+}
+
+/* Puces personnalisées avec thème végétal */
+.rgpd ul li::before {
+    content: "🌱";
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Mise en valeur du texte en gras */
+.rgpd strong {
+    color: var(--color-ultradarkgreen);
+    font-weight: 600;
+}
+
+/* Conteneur du contenu */
+.rgpd-content {
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1280px) {
+    .rgpd-section {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .rgpd {
+        padding: 1rem;
+    }
+    
+    .rgpd h1 {
+        font-size: 2rem;
+    }
+    
+    .rgpd-section {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+    .rgpd h2 {
+        font-size: 1.5rem;
+    }
+    
+    .rgpd h3 {
+        font-size: 1.2rem;
+    }
+    
+    .rgpd p {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .rgpd {
+        padding: 0.5rem;
+    }
+    
+    .rgpd h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .rgpd-section {
+        padding: 1rem;
+    }
+    
+    .rgpd ul li {
+        padding-left: 1.5rem;
+    }
+}

@@ -1,0 +1,15 @@
+<%- include('../partials/header')%>
+
+<section>
+    <h1 class="details_h1"><%= item.name %>  </h1>
+        <div class="retour">
+            <a class="retour_button" href="/places"> &lt;&lt; Retour aux lieux</a>
+        </div>
+        <h2 class="details_h1">Découvrons ensemble quelques faits intéressants sur <%=item.name%> </h2>
+        <article class="article_details">
+            <img src="<%= item.image%>" alt="<%= item.name %>" class="article_image"/>
+            <p class="place_description"><%= item.description || 'Aucune description disponible pour ce lieu.' %></p>
+        </article>
+</section>
+
+<%- include('../partials/footer')%>

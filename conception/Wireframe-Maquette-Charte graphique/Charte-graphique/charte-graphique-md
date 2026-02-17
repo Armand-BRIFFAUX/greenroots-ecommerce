@@ -1,0 +1,29 @@
+# 🎨 Charte Graphique — GreenRoots
+
+## 🌈 Palette de couleurs
+
+| Couleur | Code Hex | Utilisation |
+|----------|-----------|--------------|
+| 🌳 Vert forêt foncé | `#3A5A40` | Boutons, barre de navigation |
+| 🌿 Vert sauge | `#A3B18A` | Fonds secondaires, hover |
+| ⚪ Beige clair | `#E5E3DC` | Fond global clair |
+| ⚫ Gris anthracite | `#333333` | Texte principal |
+
+## 🖋️ Typographie
+
+- **Police principale :** [Quicksand](https://fonts.google.com/specimen/Quicksand).
+
+## 🧩 Icônes
+
+- Utilisation d’icônes **simples** (bibliothèque : [Flaticon](https://www.flaticon.com/fr/)).
+
+## 🪶 Logo
+
+**Logo:** ![GreenRoots](../../images/logoff.jpg)
+
+**Nom :** GreenRoots  
+**Slogan :** *“Planter aujourd’hui pour respirer demain.”*  
+
+## 📸 Images
+
+Toutes les images d'arbres sont stockées dans le dossier images.

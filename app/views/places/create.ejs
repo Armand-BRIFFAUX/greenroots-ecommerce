@@ -1,0 +1,33 @@
+<%-include('../partials/header')%>
+
+<section class="form_container">
+    <h1 class="create_place_h1">Ajouter un lieu</h1>
+
+    <% if (errorMessage) { %>
+      <p class="error">
+        <%= errorMessage %>
+      </p>
+      <% } %>
+      
+    <form class="place_form" action="/places/create" method="POST">
+
+        <div class="form_field">
+            <label>Nom :</label>
+            <input type="text" name="name" required value="<%= oldInput.name || '' %>">
+          </div>
+          <div class="form_field">
+            <label>Description :</label>
+            <textarea name="description"><%= oldInput.description || '' %></textarea>
+          </div>
+          <div class="form_field">
+            <label>Image (URL) :</label>
+            <input type="url" name="image" value="<%= oldInput.image || '' %>"
+              placeholder="https://... ou /images/mon-arbre.jpg">
+          </div>
+          <div class="form_submit">
+            <button type="submit">Créer</button>
+          </div>
+    </form>
+</section>
+
+<%-include('../partials/footer')%>

@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+  <section class="form_container">
+    <h1>
+      <%= title %>
+    </h1>
+    <% if (errorMessage) { %>
+      <p class="error">
+        <%= errorMessage %>
+      </p>
+      <% } %>
+
+        <form class="tree_form" action="/trees/<%= oldInput.id %>/edit" method="POST">
+          <div class="form_field">
+            <label>Nom :</label>
+            <input type="text" name="name" value="<%=oldInput.name %>" required>
+          </div>
+          <div class="form_field">
+            <label>Description :</label>
+            <textarea name="description"><%=oldInput.description %></textarea>
+          </div>
+          <div class="form_field">
+            <label>Image :</label>
+            <input type="text" name="image" value="<%=oldInput.image %>"
+              placeholder="https://... ou /images/mon-arbre.jpg">
+          </div>
+          <div class="form_field">
+            <label>Prix :</label>
+            <input type="number" step="0.01" name="price" value="<%=oldInput.price %>" required>
+          </div>
+          <div class="form_field">
+            <label>Stock :</label>
+            <input type="number" name="stock" value="<%=oldInput.stock %>" required>
+          </div>
+          <div class="form_field">
+            <label>Origine :</label>
+            <input type="text" name="origin" value="<%=oldInput.origin %>" required>
+          </div>
+          <div class="form_submit">
+            <button type="submit">Mettre à jour</button>
+          </div>
+        </form>
+  </section>
+
+  <%- include('../partials/footer') %>

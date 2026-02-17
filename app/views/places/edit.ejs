@@ -1,0 +1,30 @@
+<%- include('../partials/header')%>
+
+<section class="form_container">
+    <h1> <%=title%> </h1>
+    <% if (errorMessage) { %>
+      <p class="error">
+        <%= errorMessage %>
+      </p>
+    <% } %>
+    <form class="place_form" action="/places/<%= oldInput.id %>/edit" method="POST">
+      <div class="form_field">
+        <label>Nom du lieu :</label>
+        <input type="text" name="name" value="<%=oldInput.name %>" required>
+      </div>
+      <div class="form_field">
+        <label>Description :</label>
+        <textarea name="description"><%=oldInput.description %></textarea>
+      </div>
+      <div class="form_field">
+        <label>Image :</label>
+        <input type="text" name="image" value="<%=oldInput.image %>"
+              placeholder="https://... ou /images/mon-arbre.jpg">
+      </div>
+        <div class="form_submit">
+          <button type="submit">Mettre à jour</button>
+        </div>
+    </form>
+</section>
+
+<%- include('../partials/footer')%>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenRoots</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel='stylesheet' rel=preconnect href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+  <link rel='stylesheet' rel=preconnect
+    href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <link rel='stylesheet' rel=preconnect href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+  <link rel='stylesheet' rel=preconnect href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-straight/css/uicons-bold-straight.css'>
+  <link rel='stylesheet' rel=preconnect
+    href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/header-footer.css">
+  <link rel="stylesheet" href="/css/login-register.css">
+  <link rel="stylesheet" href="/css/homepage-contact.css">
+  <link rel="stylesheet" href="/css/trees-places.css">
+  <link rel="stylesheet" href="/css/details.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/create.edit.css">
+  <link rel="stylesheet" href="/css/panier.css">
+  <link rel="stylesheet" href="/css/confirmation.css">
+  <link rel="stylesheet" href="/css/rgpd.css">
+
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navigation">
+      <a href="/"><img class="logo" src="/images/logoff.webp" alt="GreenRoots Logo" loading="lazy"> </a>
+
+      <label for="menu" class="icon">
+        <i class="fi fi-br-menu-burger"></i>
+      </label>
+
+      <input type="checkbox" id="menu">
+
+      <ul class="nav_links">
+        <%# barre de navigation %>
+          <li><a href="/">Home</a></li>
+          <li><a href="/trees">Nos Arbres</a></li>
+          <li><a href="/places"> Nos lieux</a></li>
+          <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ul class="nav_icons">
+        <% if (userId) { %>
+          <a href="/panier" id="user_icon"><i class="fi fi-rr-shopping-cart"></i></a>
+          <% if (userRole==='admin' ) { %>
+            <a href="/dashboard" id="user_icon"><i class="fi fi-bs-admin"></i></a>
+            <%# Admin Dashboard %>
+              <% } else { %>
+                <a href="/dashboard" id="user_icon"><i class="fi fi-ss-user"></i></a>
+                <%# User Dashboard %>
+                  <% } %>
+                    <a href="/logout" id="user_icon"><i class="fi fi-bs-exit"></i></a>
+                    <%# Logout %>
+                      <% } else { %>
+                        <a href="/login" class="connexion">Connexion</a>
+                        <% } %>
+      </ul>
+    </nav>
+
+  </header>
+  <main>

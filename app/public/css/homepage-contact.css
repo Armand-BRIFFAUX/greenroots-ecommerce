@@ -1,0 +1,255 @@
+#about {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    align-items: center;
+    min-height: 85vh; /* Force la section à prendre au moins 85% de la hauteur de l'écran */
+}
+
+/* Texte - moitié gauche */
+#about div {
+    flex: 1; /* Prend la moitié de l'espace disponible */
+    min-width: 300px; /* Largeur minimale pour le responsive */
+    display: flex;
+    flex-direction: column; /* Organise h1, p, a en colonne */
+}
+
+/* Image - moitié droite */
+#about img {
+    border-radius: 1rem;
+    flex: 1; /* Prend la moitié de l'espace disponible */
+    width: 80%;
+    height: 500px;
+    max-width: 650px;
+    margin: 2rem 5rem 2rem;
+    border: 1px solid black;
+}
+
+
+#about h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-left: 10%;
+}
+
+#about h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-left: 15%;
+}
+
+#about p {
+    line-height: 1.5rem;
+    margin: 3rem 0;
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: justify;
+    margin: 8%;
+}
+
+#about a {
+    border: 1rem;
+    color: var(--color-darkgreen);
+    font-weight: bold;
+    font-size: x-large;
+    margin-left: 45%;
+}
+
+/* conteneur de l'animation */
+.slider { 
+    border-radius: 30px;
+    width: 90%;
+    max-width: 1536px;
+    margin-inline: auto;
+    position: relative;
+    height: 100px;
+    margin-bottom: 5rem;
+    overflow: hidden;
+}
+
+/* titre de nos lieux */
+.nos_lieux{
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 4rem;
+    font-weight: bold;
+}
+
+/* les images de l'animation */
+img{
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+
+/* les divs des images avec l'animation */
+.slide{
+    width: 200px;
+    height: 100px;
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: var(--color-cream);
+    color: var(--color-darkgreen); 
+    border-radius: 6px;
+    position: absolute;
+    left:100%;
+    animation: scroll 30s linear infinite;
+}
+
+.slide1{
+    animation-delay: calc(30s/ 6 * (6 - 1) * -1);
+}
+.slide2{
+    animation-delay: calc(30s/ 6 * (6 - 2) * -1);
+}
+.slide3{
+    animation-delay: calc(30s/ 6 * (6 - 3) * -1);
+}
+.slide4{
+    animation-delay: calc(30s/ 6 * (6 - 4) * -1);
+}
+.slide5{
+    animation-delay: calc(30s/ 6 * (6 - 5) * -1);
+}
+.slide6{
+    animation-delay: calc(30s/ 6 * (6 - 6) * -1);
+}
+
+/* keyframe de l'animation */
+@keyframes scroll{
+    to {
+        left: -200px;
+    }
+}
+
+/* nos nouveautés */
+.places_button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    
+}
+@media screen and (max-width: 1280px) {
+    #about img {
+        display: none;
+    }
+    .slide{
+        width:180px;
+        gap: 1rem;
+
+    }
+    .nos_lieux{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .grid_section{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 990px) {
+    .grid_section {
+        grid-template-columns: 1fr; /* écran mobile : 1 colonne */
+    }
+    .slide{
+        width: 130px
+    }
+    .nos_lieux{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* CONTACT */
+
+/* Container principal */
+#contact {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+/* Section .us  */
+.us {
+    min-width: 300px; /* Largeur minimale pour le responsive */
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+
+}
+
+/* Section .you  */
+.you {
+    display: grid; 
+    align-items: center;
+    justify-items: center;
+    margin-right: 10%;
+    
+}
+
+/* Image dans .you  */
+.you > img {
+    grid-column: 2;
+    grid-row: 1 / 3; 
+    max-height: 600px;
+}
+
+
+/* Section .contact */
+.contact {
+    width: 60%;
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    margin-left: 20%;
+}
+
+/* Images dans les sections */
+#contact img {
+    border-radius: 1rem;
+    width: 100%;
+    height: 400px;
+    max-width: 500px;
+    border: 1px solid #ddd;
+}
+
+/* Responsive : cache les images sur petits écrans */
+@media screen and (max-width: 1280px) {
+    #contact img {
+        display: none;
+    }
+}
+
+
+/* Titre principal */
+#contact h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Titres h2 dans les sections */
+#contact h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Paragraphes */
+#contact p {
+    line-height: 2rem;
+    text-align: justify;
+    margin: 2rem 0; 
+    max-width: 60%; 
+    padding: 0 1rem; 
+}

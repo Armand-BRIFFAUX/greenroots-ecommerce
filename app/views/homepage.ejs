@@ -1,0 +1,64 @@
+<%- include('partials/header') %>
+
+  <section id="about">
+
+    <div>
+      <h1>GreenRoots</h1>
+      <h2>Planter aujourd'hui pour respirer demain</h2>
+      <p>Es-tu prêt à faire pousser la forêt de demain ?
+        Avec GreenRoots, plante un arbre emblématique des quatres coins du monde et devient acteur de la reforestation.
+        Un geste concret pour la planète, une empreinte verte pour l'avenir !</p>
+      <a class="button" href="/trees">Découvrir nos arbres</a>
+    </div>
+    <img class="image_accueil" src="/images/accueil.webp"
+      alt="une main d'enfant qui tient un plant d'arbre dans un peu de terre" loading="lazy">
+  </section>
+
+  <h2 class="nos_lieux">Nos Nouveautés</h2>
+  <section class="grid_section">
+      <% if (newTrees && newTrees.length > 0) { %>
+          <% newTrees.forEach(tree =>{ %>
+            <article class="list_card">
+              <a href="/trees/<%= tree.id %>">
+                  <% if (tree.image) { %>
+                    <img class="tree_img" src="<%= tree.image %>" alt="<%= tree.name %>" loading="lazy">
+                    <% } %>
+                </a>
+                <h2 class="name"><a href="/trees/<%= tree.id %>">
+                    <%= tree.name %>
+                  </a></h2>
+                <p class="description">
+                  <%= tree.description || 'Aucune description disponible.' %>
+                </p>
+                <span class="price">Prix : <%= tree.price %> €</span>
+            </article>
+          <% }) %>
+     <% } %>
+  </section>
+
+  <section>
+    <h3 class="nos_lieux">Les paysages qui font battre nos racines</h3>
+    <div class="slider">
+        <div class="slide slide1">
+          <img src="/images/places/bresil.webp" alt="Une image de Brésil" loading="lazy">
+        </div>
+        <div class="slide slide2">
+          <img src="/images/places/madagascar.webp" alt="Une image de Madagascar" loading="lazy">
+        </div>
+        <div class="slide slide3">
+          <img src="/images/places/chili.webp" alt="Une image du Chili" loading="lazy">
+        </div>
+        <div class="slide slide4">
+          <img src="/images/places/australie.webp" alt="Une image de l'Australie" loading="lazy">
+        </div>
+        <div class="slide slide5">
+          <img src="/images/places/france.webp" alt="Une image de la France" loading="lazy">
+        </div>
+        <div class="slide slide6">
+          <img src="/images/places/allemagne.webp" alt="Une image de l'Allemagne" loading="lazy">
+        </div>
+    </div>
+    <a class="places_button" href="/places">Découvrir nos lieux</a>
+  </section>
+
+  <%- include('partials/footer') %>

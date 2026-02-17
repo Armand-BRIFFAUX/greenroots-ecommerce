@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+
+  <h1 class="dashboard">Bienvenue </h1>
+  <section class="profil">
+    <article class="user">
+      <h2>Profil</h2>
+      <h3>Nom : </h3>
+      <p class="profil_p">
+        <%= user.last_name %>
+      </p>
+      <h3>Prénom : </h3>
+      <p class="profil_p">
+        <%= user.first_name %>
+      </p>
+      <h3>Email :</h3>
+      <p class="profil_p">
+        <%= user.email %>
+      </p>
+    </article>
+
+    <article class="trees">
+      <% if (userRole === 'admin') { %>
+        <h2>Gestion des arbres</h2>
+        <div class="admin_actions">
+          <a href="/trees/create" class="action_button">Ajouter un arbre</a>
+          <a href="/places/create" class="action_button">Ajouter un lieu</a>
+          <a href="/users" class="action_button">Liste des utilisateurs</a>
+          <a href="/trees" class="action_button">Gérer les arbres</a>
+        </div>
+      <% } else { %>
+        <h2>Mes arbres commandés</h2>
+          <% if (user.Orders && user.Orders.length> 0) { %>
+            <div class="tree-list">
+              <% user.Orders.forEach(order=> { %>
+                <% order.OrderHasTrees.forEach(orderTree=> { %>
+                  <div class="details_info">
+                    <h3>
+                      <%= orderTree.Tree.name %>
+                    </h3>
+                    <p>Quantité : <%= orderTree.quantity %>
+                    </p>
+                    <% orderTree.Tree.Places.forEach(place=> { %>
+                      <p>Planté à : <%= place.name %>
+                      </p>
+                    <% }) %>
+                    <a href="/trees/<%= orderTree.Tree.id %>" class="details-button">Voir les détails</a>
+                  </div>
+                <% }) %>
+              <% }) %>
+            </div>
+            <% } else { %>
+              <p class="no-items">Vous n'avez pas encore d'arbres commandés</p>
+              <a href="/trees" class="action-button">Découvrir nos arbres</a>
+              <% } %>
+                <% } %>
+    </article>
+    <div class="profil_logout"><a href="/logout">Se déconnecter</a></div>
+
+
+  </section>
+
+  <%- include('partials/footer') %>

@@ -1,0 +1,97 @@
+<%- include('../partials/header') %>
+
+  <section id="details">
+    <h1 class="details_h1">Détail du <%= item.name %>
+    </h1>
+    <div class="retour">
+      <a class="retour_button" href="/trees"> &lt;&lt; Retour aux arbres</a>
+    </div>
+
+
+    <article class="article_details">
+      <% if (item.image) { %>
+        <img class="article_image" src="<%= item.image %>" alt="<%= item.name %>" />
+        <% } %>
+          <div class="details_info">
+            <h2><span>Nom</span> : <%= item.name %></h2>
+            <p>Nom scientifique : <span id="scientific-name" class="scientific-name">Chargement...</span></p>
+            <p><span>Origine </span> : <%= item.origin %>
+            </p>
+            <p><span>Prix</span> : <%= item.price %> €</p>
+            <p class="desc"><span>Description</span> : <%= item.description %>
+            </p>
+            <p><span>Disponibilité</span> : <%=item.stock%> Arbres</p>
+
+            <form action="/panier/add" method="POST" class="add-to-cart-form">
+              <input type="hidden" name="tree_id" value="<%= item.id %>">
+              <input type="number" name="quantity" value="1" min="1" max="<%=item.stock%>" class="quantity-input">
+              <button type="submit" class="ajouter_au_panier_button">Ajouter au panier</button>
+            </form>
+
+          </div>
+    </article>
+
+  </section>
+
+  <script>
+
+  // Récupère le nom de l’arbre (en français) envoyé depuis le backend (EJS)
+  const treeNameFr = "<%= item.name %>";
+
+  // la traduction de nos arbres en aglais pour interragire avec Perenual (api en anglais)
+  const treeTranslations = {
+    "Chêne": "English Oak",
+    "Bouleau": "Birch",
+    "Baobab": "Baobab",
+    "Dogwoods": "Dogwood",
+    "Érable à sucre": "Sugar Maple",
+    "Cyprès de l’Himalaya": "Himalayan Cypress",
+    "Cerisier du Japon (sakura)": "Japanese Flowering Cherry",
+    "Araucaria du Chili": "Chilean Pine",
+    "Noyer du Brésil": "Brazil nut tree",
+    "Arbre à pain": "Breadfruit Tree",
+    "Eucalyptus": "Eucalyptus",
+    "Acacia": "Acacia"
+  };
+
+  //Si la traduction existe, on l’utilise, sinon on garde le nom en fr
+  const treeName = treeTranslations[treeNameFr] || treeNameFr;
+
+  // Fonction pour aller chercher le nom scientifique via backend
+  async function fetchScientificName(name) {
+    try {
+      // Appel à la route Express sécurisée (/trees/api/plants) avec le nom traduit
+      const response = await fetch(`/trees/api/plants?name=${encodeURIComponent(name)}`);
+      //encodeURIComponent() => remplace les espaces, les accents et les caractères spéciaux par des codes compréhensibles pour un serveur web.
+      // ( /api?name=Cerisier du Japon (sakura)  =>  /trees/api/plants?name=Cerisier%20du%20Japon%20(sakura))
+
+      //Convertit la réponse en JSON
+      const data = await response.json(); 
+
+      // Si aucun résultat n’est trouvé => message d’erreur affiché
+      // Si data est vide, ou que data.data est vide, ou que le tableau n’a aucune longueur (0), alors on entre dans le if
+      if (!data?.data?.length) {
+        document.getElementById("scientific-name").textContent = "Nom scientifique non disponible";
+        return;
+      }
+
+      //On récupère le nom scientifique du premier résultat dans l'objet JSON que nous renvoie Perenual ou un texte par défaut si absent
+      const scientificName = data.data[0].scientific_name?.[0] || "Nom scientifique inconnu";
+
+      // On affiche le nom dans le <span id="scientific-name">
+      document.getElementById("scientific-name").textContent = scientificName;
+
+    } catch (error) { //En cas d’erreur réseau ou serveur
+      console.error("Erreur :", error);
+      document.getElementById("scientific-name").textContent = "Erreur lors du chargement";
+    }
+  }
+
+  // Et on exécute la fonction quand la page est chargée
+  fetchScientificName(treeName);
+
+</script>
+
+
+
+  <%- include('../partials/footer') %>

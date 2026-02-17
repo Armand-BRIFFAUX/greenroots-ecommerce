@@ -1,0 +1,96 @@
+/* Formulaire create et edit */
+
+.form_container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form_container h1 {
+  font-weight: bolder;
+  font-size: xx-large;
+  text-align: center;
+  color: var(--color-ultradarkgreen);
+  margin-bottom: 1.5rem;
+}
+
+.form_container .error {
+  color: #721c24;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* formulaire */
+.tree_form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* champs de formulaire */
+.form_field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form_field label {
+  font-weight: bold;
+  color: var(--color-darkgreen);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.form_field input,
+.form_field textarea {
+  padding: 0.8rem;
+  border: 2px solid #f8f1df;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form_field input:focus,
+.form_field textarea:focus {
+  outline: none;
+  border-color: var(--color-lightgreen);
+}
+
+.form_submit button {
+  background-color: var(--color-darkgreen);
+  color: var(--color-cream);
+  padding: 1rem 3rem;
+  margin-left: 20%;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form_submit button:hover {
+  background-color: var(--color-ultradarkgreen);
+  transform: translateY(-2px);
+}
+
+.form_submit button:active {
+  transform: translateY(0);
+}
+
+/* responsive - mobile */
+@media (max-width: 768px) {
+  .tree_form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form_container,
+  .tree_form {
+    padding: 1rem;
+  }
+}

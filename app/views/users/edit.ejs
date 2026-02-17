@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+<section class="form_container">
+    <h1><%= title %></h1>
+
+    <% if (errorMessage) { %>
+        <p class="error"><%= errorMessage %></p>
+    <% } %>
+
+    <form class="user_form" action="/users/<%= oldInput.id %>/edit" method="POST">
+        <div class="form_field">
+            <label>Prénom :</label>
+            <input type="text" name="first_name" value="<%= oldInput.first_name %>" required>
+        </div>
+
+    <div class="form_field">
+      <label>Nom :</label>
+      <input type="text" name="last_name" value="<%= oldInput.last_name %>" required>
+    </div>
+
+    <div class="form_field">
+      <label>Email :</label>
+      <input type="email" name="email" value="<%= oldInput.email %>" required>
+    </div>
+
+    <div class="form_field">
+      <label>Rôle :</label>
+      <select name="role" required>
+        <option value="client" <%= oldInput.role === 'client' ? 'selected' : '' %>>Client</option>
+        <option value="admin" <%= oldInput.role === 'admin' ? 'selected' : '' %>>Admin</option>
+      </select>
+    </div>
+
+    <div class="form_submit">
+      <button type="submit">Mettre à jour</button>
+    </div>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>

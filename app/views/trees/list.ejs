@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+  <section class="section">
+    <h1 class="list_h1">
+      Liste de nos arbres
+    </h1>
+    <% if (userRole==='admin' ) { %>
+      <div class="create">
+        <a class="create_button" href="/trees/create">Ajouter un arbre</a>
+      </div>
+      <% } %>
+        <div class="grid_section">
+          <% if (items && items.length> 0) { %>
+            <% items.forEach(tree=> { %>
+              <article class="list_card">
+                <a href="/trees/<%= tree.id %>">
+                  <% if (tree.image) { %>
+                    <img class="tree_img" src="<%= tree.image %>" alt="<%= tree.name %>">
+                    <% } %>
+                </a>
+                <h2 class="name"><a href="/trees/<%= tree.id %>">
+                    <%= tree.name %>
+                  </a></h2>
+                <p class="description">
+                  <%= tree.description || 'Aucune description disponible.' %>
+                </p>
+                <span class="price">Prix : <%= tree.price %> €</span>
+                <a href="/trees/<%= tree.id %>" class="buy_button">Acheter</a>
+                <% if (userRole==='admin' ) { %>
+                  <form action="/trees/<%= tree.id %>/edit" method="GET">
+                    <button type="submit" class="edit_button">Modifier</button>
+                  </form>
+                  <form action="/trees/<%= tree.id %>/delete" method="POST">
+                    <button type="submit" class="delete_button">Supprimer</button>
+                  </form>
+                  <% } %>
+              </article>
+              <% }) %>
+                <% } else { %>
+                  <p class="no_items">Aucun arbre disponible pour le moment.</p>
+                  <% } %>
+        </div>
+  </section>
+
+  <%- include('../partials/footer') %>

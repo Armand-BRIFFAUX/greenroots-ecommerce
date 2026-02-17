@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 1em sans-serif;
+}
+
+.login_page{
+    height: 100vh;
+    background-color: var(--color-cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_container{
+    background-color: #edede9;
+    padding: 3rem 4rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.connexion_h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-darkgreen);
+}
+
+.input{
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+.connexion_button{
+    width: 100%;
+    padding: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-darkgreen);
+    color: var(--color-cream);
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.connexion_button:hover{
+    background-color: #2e4432;
+    transition: background-color 0.3s ease;
+}
+
+.register_link{
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.inscrivez_vous{
+    color: var(--color-darkgreen);
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .register_container {
+        padding: 2rem;
+        margin: 0 1rem;
+        box-shadow: none;
+    }
+    
+}
+
+/* register */
+
+.register_page{
+    height: 100vh;
+    background-color: var(--color-cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register_container{
+    background-color: #edede9;
+    padding: 3rem 4rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.register_h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-darkgreen);
+}
+
+.register_button{
+    width: 100%;
+    padding: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-darkgreen);
+    color: var(--color-cream);
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.register_button:hover{
+    background-color: #2e4432;
+    transition: background-color 0.3s ease;
+}
+
+
+@media screen and (max-width: 768px) {
+    .register_container {
+        padding: 2rem;
+        margin: 0 1rem;
+        box-shadow: none;
+    }
+    
+}

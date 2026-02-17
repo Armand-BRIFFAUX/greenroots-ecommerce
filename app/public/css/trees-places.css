@@ -1,0 +1,153 @@
+/*Background de la page */
+.section{
+    background-color: var(--color-cream);
+    margin-top: 0;
+}
+
+
+/*  Limite et centre le contenu principal */
+main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+
+/* L'image produit*/
+.tree_img{
+    width: 100%;
+    height: 220px;           
+    object-fit: cover;       
+    border-radius: 10px;
+}
+
+/* Le nom de chaque produit */
+.name{
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-weight: bold;
+    align-items: start;
+}
+
+/* Description de chaque produit*/
+.description{
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-wrap: break-word;
+}   
+
+/* Price */
+.price{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Bouton pour acheter + bouton admin */
+.buy_button,
+.edit_button,
+.delete_button {
+    background-color:  #677056;
+    color: var(--color-cream);
+    border: none;
+    padding: 10px 20px;
+    margin:1.5rem 2rem 0 2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Bouton hover */
+.buy_button:hover,
+.edit_button:hover,
+.delete_button:hover {
+    background-color: var(--color-darkgreen);
+    transition: background-color 0.5s ease;
+    font-size: 1rem;
+    transition: font-size 0.5s ease;
+    
+}
+
+.create_button{
+    color: var(--color-darkgreen);
+    border: none;
+    margin-left: 10%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.create_button:hover{
+    color: #2e4432;
+}
+
+/* Responsive*/
+@media screen and (max-width: 768px) {
+    .grid_section {
+        grid-template-columns: 1fr; /* écran mobile : 1 colonne */
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+    .grid_section {
+        grid-template-columns: repeat(2, 1fr); /* tablettes / petits laptops : 2 colonnes */     
+    }
+}
+
+/* PLACES */
+
+.place_description{
+    font-size: 2rem;
+    margin: 5rem 2rem 0rem 0.5rem;
+    text-align: center;
+    color: #000000;
+}
+
+.place_form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.create_place_h1{
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    padding:2rem;
+}
+
+.create_place_form{
+    background-color: #edede9;
+    padding: 3rem 4rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    height:fit-content;
+    margin-top: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .grid_section {
+        grid-template-columns: 1fr; /* écran mobile : 1 colonne */
+    }
+    .details_h3{
+        margin: 1rem;
+    }
+    .place_description{
+        margin: 1rem;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+    .grid_section {
+        grid-template-columns: repeat(2, 1fr); /* tablettes / petits laptops : 2 colonnes */     
+    }
+    .place_description{
+        margin: 2rem;
+    }
+}

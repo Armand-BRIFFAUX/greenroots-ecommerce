@@ -1,0 +1,181 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--color-darkgreen);
+
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+}
+
+.logo{
+    cursor: pointer;
+    width: 5rem;
+    height: auto;
+    border-radius: 45% ;
+    display: block;
+}
+
+.icon{
+    color: var(--color-cream);
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none;
+    right: 5%;
+}
+
+#menu{
+    display: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    gap: 5rem;
+    margin: 0 1rem;
+    color: var(--color-cream);
+}
+
+.nav_links a {
+    color: var(--color-cream);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav_links li a:hover {
+    color: var(--color-lightgreen);
+    font-size: 1.7rem;
+    transition: all 0.5s ease;
+}
+
+.nav_icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.connexion {
+    background-color: var(--color-cream);
+    color: var(--color-darkgreen);
+    border: none;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#user_icon {
+    color: var(--color-cream);
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#user_icon:hover {
+    background-color: var(--color-lightgreen);
+    transform: scale(1.1);
+}
+
+.connexion:hover {
+    background-color: var(--color-lightgreen);
+}
+
+@media screen and (max-width: 910px) {
+    .navigation {
+        flex-wrap: wrap;
+    }
+    
+    .icon {
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+    
+    .nav_links, .nav_icons {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #menu:checked ~ .nav_links,
+    #menu:checked ~ .nav_icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+    
+    .nav_links li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+    
+    .nav_icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    
+    #user_icon {
+        font-size: 1.8rem;
+        padding: 6px;
+    }
+    
+    .connexion {
+        display: inline-block;
+        margin: 0.5rem 0;
+    }
+}
+
+/* FOOTER */
+
+.footer{
+    background-color: var(--color-darkgreen);
+    color: var(--color-cream);
+    text-align: center;
+    padding: 1rem 0;
+    bottom: 0;
+    width: 100%;
+}
+
+p {
+  margin-top: 1rem;
+}
+
+.footer a {
+  color: var(--color-cream);
+}
+
+.footer a:hover {
+  color: var(--color-lightgreen);
+  transition: 0.5s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .footer{
+        margin-top: 18rem;
+    }
+}

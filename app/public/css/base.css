@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --color-ultradarkgreen:  rgb(7, 59, 11);
+    --color-darkgreen: #3A5A40;
+    --color-lightgreen: #78978c;
+    --color-cream: #E5E3DC;
+    --font-family: 'Quicksand', sans-serif
+}
+
+html {
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--color-cream);
+  min-height: 100vh;
+}
+/* Grid */
+.grid_section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes par défaut */
+    justify-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    width: 100%;
+}
+/* Titre de la page*/
+.list_h1{
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    padding:2rem;
+}
+/* Chaque produit */
+.list_card{
+    display: flex;
+    background-color: #edede9;
+    width: 100%;             
+    max-width: 420px;         
+    flex-direction: column;
+    align-items: center;
+    border: 0.5px solid #3A5A40;
+    border-radius: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.list_card:hover{
+    transform: translateY(-5px);
+    background-color: #d3e2b6;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+/* h1 des deux views de détails, trees et places */
+.details_h1{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 2rem;
+    text-align: center;
+}

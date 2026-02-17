@@ -1,0 +1,48 @@
+<%- include('../partials/header')%>
+
+<section class="section">
+    <h1 class="list_h1">
+      Liste de nos lieux
+    </h1>
+    <% if (userRole==='admin' ) { %>
+    <div class="create">
+      <a class="create_button" href="/places/create">Ajouter un lieu</a>
+    </div>
+    <% } %>
+    <div class="grid_section">
+      <% if (items && items.length> 0) { %>
+        <% items.forEach(place=> { %>
+          <article class="list_card">
+            <a href="/places/<%= place.id %>">
+                  <% if (place.image) { %>
+                    <img class="tree_img" src="<%= place.image %>" alt="<%= place.name %>">
+                    <% } %>
+                </a>
+            <h2 class="name"><a href="/places/<%= place.id %>">
+                <%= place.name %>
+              </a></h2>
+              <p class="description">
+                <%
+                const desc = place.description || '';
+                const shortDesc = desc.length > 100 ? desc.substring(0, 100) + '...' : desc;
+                %>
+                  <%= shortDesc || 'Aucune description disponible.' %>
+                </p>
+              <a class="create_button" href="/places/<%=place.id%>">En savoir plus</a>
+            <% if (userRole==='admin' ) { %>
+              <form action="/places/<%= place.id %>/edit" method="GET">
+                <button type="submit" class="edit_button">Modifier</button>
+              </form>
+              <form action="/places/<%= place.id %>/delete" method="POST">
+                <button type="submit" class="delete_button">Supprimer</button>
+              </form>
+              <% } %>
+          </article>
+          <% }) %>
+            <% } else { %>
+              <p class="no_items">Aucun lieu disponible pour le moment.</p>
+              <% } %>
+    </div>
+</section>
+
+<%- include('../partials/footer')%>

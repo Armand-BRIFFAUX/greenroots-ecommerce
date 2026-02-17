@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<section class="section">
+    <h1 class="list_h1">
+    Liste des utilisateurs
+    </h1>
+    <div class="grid_section">
+    <% if (items && items.length > 0) { %>
+        <% items.forEach(user => { %>
+        <article class="list_card">
+            <h2 class="name">
+            <a href="/users/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a>
+            </h2>
+            <p class="description">
+            <strong>Email :</strong> <%= user.email %><br>
+            <strong>Rôle :</strong> <%= user.role %>
+            </p>
+        <% if (userRole === 'admin') { %>
+            <form action="/users/<%= user.id %>/edit" method="GET">
+                <button type="submit" class="edit_button">Modifier</button>
+            </form>
+
+            <form action="/users/<%= user.id %>/delete" method="POST">
+                <button type="submit" class="delete_button">Supprimer</button>
+            </form>
+        <% } %>
+        </article>
+    <% }) %>
+    <% } else { %>
+        <p class="no_items">Aucun utilisateur trouvé.</p>
+    <% } %>
+    </div>
+</section>
+
+<%- include('../partials/footer') %>
